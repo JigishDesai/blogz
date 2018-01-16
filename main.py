@@ -25,6 +25,7 @@ def blog():
         db.session.add(newblog)
         db.session.commit()
     
+    
     blogs = Blog.query.all()
     return render_template('blog.html', blogs=blogs)
 
