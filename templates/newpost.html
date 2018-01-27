@@ -1,18 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-<form action='/newpost' method='post'>
-    <label for="title">Title for your new blog:</label>
-     
-    <input name="title" type="text" value="{{ title }}" required>
-    <br>
-    <br>
-    <br>
-    <label for="body">Your new blog:</label>
-    <textarea name="body" required></textarea>
-    <br>
-    <br>
-    <input type="submit" value="Add Entry">
-</form>
+    
+{{error}}
+<table><tr><td><h1>new post</h1>
+    <form method='post' action='/newpost'></td></tr>
+        <tr><td><label>
+            title
+            <br>
+            <input type="text" name='title' value='{{blog_title}}'/>
+        </label></td></tr>
+        <tr><td><label>
+            post
+            <br>
+            <textarea name='body'>{{blog_body}}</textarea>
+        </label></td></tr>
+        <tr><td><input type="submit" value='Submit' /></td></tr></table>
+    </form>
 
 {% endblock %}

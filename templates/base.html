@@ -1,17 +1,38 @@
 <!doctype html>
 <html>
     <head>
-        <title>{{title}}</title>
-    </head>
-<body>
-    <nav>
-        <a href="/blog", style="font-size:20px"><b>Main Blog Page</b></a>
-        <a href="/newpost", , style="font-size:20px"><b>Add a Blog Entry</b></a>
-    </nav>
-    {% block content %}
+        <title>Blogz</title>
+    <style>
     
-    {% endblock %}
+        .error {
+            color: red;
+        }
+    
+    </style>
+    
+    </head>
 
     
+<body>
+
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">all posts</a>
+    <a href="/newpost">new post</a>
+    <a href="/login">login</a>
+    <a href="/logout">logout</a>
+</nav>
+
+{% with messages = get_flashed_messages(with_categories=True) %}
+<ul>
+{% for category,message in messages %}
+    <li class="{{category}}">{{message}}</li>
+{% endfor %}
+</ul>
+{% endwith %}
+
+    {% block content %}
+    {% endblock %}
+
 </body>
 </html>
